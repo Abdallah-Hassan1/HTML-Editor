@@ -106,6 +106,6 @@ window.addEventListener("DOMContentLoaded", function () {
   if (params.get("c"))
     document.getElementById("cssCode").value = params.get("c");
   if (params.get("j"))
-    document.getElementById("javascriptCode").value = params.get("f");
+    document.getElementById("javascriptCode").value = params.get("j");
   update();
 });
