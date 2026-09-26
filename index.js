@@ -94,8 +94,18 @@ function downloadFile() {
   URL.revokeObjectURL(url);
 }
 
-update();
-
 window.addEventListener("beforeunload", function (event) {
   event.preventDefault();
+});
+
+window.addEventListener("DOMContentLoaded", function () {
+  const params = new URLSearchParams(document.location.search);
+  console.log(params.get("h"));
+  if (params.get("h"))
+    document.getElementById("htmlCode").value = params.get("h");
+  if (params.get("c"))
+    document.getElementById("cssCode").value = params.get("c");
+  if (params.get("j"))
+    document.getElementById("javascriptCode").value = params.get("f");
+  update();
 });
