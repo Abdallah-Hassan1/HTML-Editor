@@ -20,7 +20,7 @@ function update() {
     <body style="margin: 0 !important; padding: 0 !important; display: flex !important; flex-direction: column-reverse !important; all: revert;">
       <console-viewer style="margin: 8px !important; padding-bottom: 10px !important; all: revert;">
         <console-head style="margin-bottom: 8px !important; text-align: center !important; font-size: 30px !important; display: block !important; all: revert;">console output</console-head>
-        <console-output style="display: block !important; background: #f4f4f4 !important; padding: 10px !important; border: 2px solid #ccc !important; font-falmily: monospace !important; height: 150px !important; overflow: auto !important; all: revert;"></console-output>
+        <console-output style="display: block !important; background: #f4f4f4 !important; padding: 10px !important; border: 2px solid #ccc !important; font-family: monospace !important; height: 150px !important; overflow: auto !important; all: revert;"></console-output>
       </console-viewer>
 
       <mainHTML style="border-bottom: 2px solid #ccc !important; display: block !important; height: 100vh !important; overflow: auto !important; all: revert;">${htmlCode.value}</mainHTML>
