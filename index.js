@@ -26,12 +26,12 @@ function update() {
       <mainHTML style="border-bottom: 2px solid #ccc !important; display: block !important; height: 100vh !important; overflow: auto !important; all: revert;">${htmlCode.value}</mainHTML>
       
       <script>
-       const originalConsoleLog = console.log;
+        const originalConsoleLog = console.log;
         console.log = function(...args){
           originalConsoleLog.apply(console, args);
 
           const message = document.createElement("console-message");
-          message.setAttribute("style", "display: block;")
+          message.setAttribute("style", "display: block; all: revert;")
 
           const ouputMessage = args
           .map((arg) => {
@@ -137,9 +137,18 @@ window.addEventListener("beforeunload", function (event) {
 // لو فيه كود مدمج في الرابط يتم وضعه في الصفحة
 window.addEventListener("DOMContentLoaded", function () {
   const params = new URLSearchParams(document.location.search);
-  if (params.get("h")) htmlCode.value = params.get("h");
-  if (params.get("c")) cssCode.value = params.get("c");
-  if (params.get("j")) javascriptCode.value = params.get("j");
+  if (params.get("j")) {
+    javascriptCode.value = params.get("j");
+    showJS();
+  }
+  if (params.get("c")) {
+    cssCode.value = params.get("c");
+    showCSS();
+  }
+  if (params.get("h")) {
+    htmlCode.value = params.get("h");
+    showHTML();
+  }
 
   update();
 });
@@ -176,3 +185,50 @@ function generateGetLinkMessage(status) {
     document.querySelector(".message").classList.toggle("hide");
   }, 2000);
 }
+
+// تغيير صفحة كتابة الكود
+const htmlBtn = document.querySelector("#html-btn");
+const cssBtn = document.querySelector("#css-btn");
+const jsBtn = document.querySelector("#js-btn");
+
+function removeAllActiveShowClass() {
+  htmlBtn.classList.remove("active");
+  cssBtn.classList.remove("active");
+  jsBtn.classList.remove("active");
+  htmlCode.classList.remove("show");
+  cssCode.classList.remove("show");
+  javascriptCode.classList.remove("show");
+}
+
+function showHTML() {
+  removeAllActiveShowClass();
+  htmlBtn.classList.add("active");
+  htmlCode.classList.add("show");
+  htmlCode.focus();
+}
+htmlBtn.addEventListener("click", () => {
+  showHTML();
+});
+
+function showCSS() {
+  removeAllActiveShowClass();
+  cssBtn.classList.add("active");
+  cssCode.classList.add("show");
+  cssCode.focus();
+}
+cssBtn.addEventListener("click", () => {
+  showCSS();
+});
+
+function showJS() {
+  removeAllActiveShowClass();
+  jsBtn.classList.add("active");
+  javascriptCode.classList.add("show");
+  javascriptCode.focus();
+}
+jsBtn.addEventListener("click", () => {
+  removeAllActiveShowClass();
+  jsBtn.classList.add("active");
+  javascriptCode.classList.add("show");
+  javascriptCode.focus();
+});

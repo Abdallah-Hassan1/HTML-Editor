@@ -14,21 +14,26 @@
       <span class="icon">&#9989;</span> <span class="text">Copied</span>
     </div>
     <div class="main">
-      <div class="buttons">
-        <div class="download" onclick="downloadFile()">Download File</div>
-        <div class="copy" onclick="generateParams()">Get link</div>
-        <div class="console" onclick="goToConsole()">Console</div>
-      </div>
       <div class="container">
+        <div class="buttons">
+          <div class="download" onclick="downloadFile()">Download File</div>
+          <div class="copy" onclick="generateParams()">Get link</div>
+          <div class="console" onclick="goToConsole()">Console</div>
+        </div>
+        <div class="lang-btns">
+          <button id="html-btn" class="active">HTML</button>
+          <button id="css-btn">CSS</button>
+          <button id="js-btn">JS</button>
+        </div>
         <!-- Text area for Html Code  -->
         <textarea
           id="htmlCode"
+          class="show"
           placeholder="Type HTML code here"
           spellcheck="false"
           autocapitalize="none"
           oninput="update()"
-        ></textarea
-        >
+        ></textarea>
         <!-- Text area for Css Code  -->
         <textarea
           id="cssCode"
@@ -36,8 +41,7 @@
           spellcheck="false"
           autocapitalize="none"
           oninput="update()"
-        ></textarea
-        >
+        ></textarea>
         <!-- Text area for Javascript Code  -->
         <textarea
           id="javascriptCode"
@@ -45,8 +49,7 @@
           placeholder="Type JavaScript code here"
           autocapitalize="none"
           oninput="update()"
-        ></textarea
-        >
+        ></textarea>
       </div>
       <div class="iframe-container">
         <iframe id="viewer"></iframe>
