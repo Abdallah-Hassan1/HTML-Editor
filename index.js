@@ -31,7 +31,7 @@ function update() {
           originalConsoleLog.apply(console, args);
 
           const message = document.createElement("console-message");
-          message.setAttribute("style", "display: block; all: revert;")
+          message.setAttribute("style", "display: block !important; all: revert;")
 
           const ouputMessage = args
           .map((arg) => {
